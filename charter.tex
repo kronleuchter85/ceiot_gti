@@ -7,10 +7,10 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Robot de exploración ambiental} 
+\titulo{Solución IoT para robot de exploración ambiental de datos críticos con almacenamiento en blockchain} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
+\posgrado{Carrera de Especialización en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Intelegencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
@@ -38,9 +38,9 @@
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
  
-\fechaINICIO{13 de marzo de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de mayo de 2023} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{20 de noviembre de 2023}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{1 de julio de 2024}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{1 de junio de 2025} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{20 de octubre de 2025}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -69,11 +69,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento.                                 &\fechaInicioName \\ \hline
-1      & Se completa hasta el punto 5 inclusive.                 & 14 de marzo de 2023 \\ \hline
-2      & Se completa hasta el punto 9 inclusive	y se agregan correcciones.				& 21 de marzo de 2023 \\ \hline
-3      & Se completa hasta el punto 12 inclusive y se agregan correcciones. 				& 28 de marzo de 2023 \\ \hline
-4      & Se completa hasta el punto 15 inclusive y se agregan correcciones. 				& 4 de abril de 2023 \\ \hline
-5      & Se agregan correcciones finales	 											& 18 de abril de 2023 \\ \hline
+
 
 \end{tabularx}
 \end{table}
@@ -91,7 +87,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá en \textcolor{black}{la implementación de un sistema embebido para un dispositivo móvil controlado a distancia con funcionalidades que permiten explorar el entorno}, y tendrá un presupuesto preliminar estimado de \textcolor{black}{\$ 108} dólares estadounidenses y \textcolor{black}{721} horas de trabajo, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública estimada \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá en \textcolor{black}{la implementación de un sistema embebido de robot de exploracion ambiental conectado a un sistema back-end en la nube publica capaz de persistir los datos en una red blockhain}, y tendrá un presupuesto preliminar estimado de \textcolor{black}{\$ 108} dólares estadounidenses y \textcolor{black}{721} horas de trabajo, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública estimada \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -115,20 +111,43 @@ Se adjunta a esta acta la planificación inicial.
 \label{sec:descripcion}
 
 \begin{consigna}{black} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección. En cada entrega parcial deben eliminar los comandos begin y end del bloque consigna de las secciones que hayan completado.
-El presente proyecto es un emprendimiento personal que busca desarrollar un dispositivo robótico de exploración ambiental controlable a distancia con las funciones básicas de desplazamiento, medición y reporte de parámetros ambientales (presión, temperatura, humedad y luminosidad).
+El presente proyecto es un emprendimiento personal que busca integrar el dispositivo robótico de exploración ambiental controlable a distancia desarrollado en el marco de la carrera de especializacion en sistemas embebidos con un backend para el analisis y explotacion de datos en la nube publica y una red blockchain para el almacenamiento inmutable de datos criticos.
 
 \textit{\textbf{Estado del arte:}}
-los robots exploradores son dispositivos robotizados capaces de moverse de forma autónoma, y/o controlados a distancia, que han sido creados con el fin de reconocer y explorar un lugar o entorno donde una persona no pueda o deba acceder ya sea por motivos de capacidad, practicidad o seguridad. Por este motivo, en función de las necesidades de desplazamiento, existen diferentes sistemas de motricidad, como son por ejemplo, los bípedos, cuadrúpedos, con ruedas, tracción oruga, acuáticos/sumergibles, aéreos, etc. En cuanto a la forma de control, hay manejados por control remoto cableado o inalámbrico, habiendo equipos más sofisticados que gracias a aplicaciones de Inteligencia Artificial están preparados para desplazarse y tomar decisiones de forma autónoma.
+Los robots exploradores son los dispositivos robotizados que han sido creados con el fin de reconocer y explorar un lugar o terreno siendo capaces de moverse de forma autónoma o controlados por personas a control remoto. Su objetivo es evitar poner en riesgo la vida de los humanos, ya sea debido a que el lugar es inaccesible o porque se encuentra en una zona contaminada.
 Algunos de los tipos de robots exploradores más conocidos son los espaciales, de minas, de rescate en catástrofes, de tuberías, acuáticos y/o submarinos, y de suelos.
 
-En el siguiente diagrama se puede apreciar el diseño a alto nivel del sistema embebido del robot.
+Estos dispositivos, forman parte de una solución arquitectónica IoT más amplia, cumpliendo el rol de nodos “edge”.  Una vez implementados y funcionando envían lecturas del reconocimiento y operaciones realizadas a sistemas de procesamiento y almacenamiento de datos que conforman el backend, generalmente en la nube, desde donde se puede visualizar los resultados obtenidos, sus métricas derivadas, realizar trazabilidad de las operaciones así como almacenar y gobernar los datos generados. 
 
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.9\textwidth]{./Figuras/ProyectoFinal-Page-7.jpg}
-\caption{Diagrama en bloques del sistema.}
-\label{fig:diagBloques}
-\end{figure}
+En situaciones en las que el robot es utilizado para explorar y monitorear un área ambientalmente sensible, como una reserva natural o un sitio afectado por un desastre ecológico y su misión es recopilar datos críticos -como niveles de contaminación, temperatura, humedad, y calidad del aire- es de gran importancia almacenar estas mediciones de una forma en la que se pueda asegurar la integridad y transparencia de los datos, como por ejemplo, en una cadena de bloques (blockchain).
+
+Una arquitectura blockchain se basa en el procesamiento y almacenamiento de transacciones agrupadas en bloques encadenados e inmutables de forma distribuida entre los nodos de una red en lo que se conoce como un distributed ledger. De esta manera se puede asegurar integridad de los datos ya que los registros generados no se pueden modificar una vez creados. Además, como la red es accesible entre los actores intervinientes en el caso de uso -pudiendo ser pública o privada y con o sin permisos-, se puede garantizar la transparencia de los datos.
+La mayoría de las redes blockchain constan de la tecnología para la implementación de código backend ejecutable en la red, que aunque su nombre puede cambiar dependiendo de la red en la cual se implementan, usualmente se los conoce como Smart Contracts. La ejecución de estos componentes es realizada por los nodos de la red en el proceso que se conoce como minería, y como tal es una actividad que requiere el pago de un fee conocido como gas medido en diferentes unidades dependiendo de la red y normalmente pagable desde una cuenta nominada en el token de la red asociada a la aplicación o propietario de los smart contracts. 
+La  forma de interactuar con los smart contracts en un caso de uso interactivo desde afuera de la red, se realiza a través de otro componente conocido como dApps (de-centralized applications) que haciendo uso de ciertas librerías de Web3 invocan a estos para almacenar y obtener datos en y desde el ledger.
+
+En el siguiente diagrama se puede apreciar una posible arquitectura del sistema final.
+
+
+
+\begin{center}
+   \includegraphics[scale=0.15]{Figuras/IoTProject-Page-1.drawio}
+   \captionof{figure}{Arquitectura del sistema}
+   \label{fig:esp32}
+\end{center}
+
+
+
+
+El hardware utilizado para la solución de IoT propuesta es un robot de exploración ambiental de control inalámbrico, desarrollado en la Carrera de Especialización en Sistemas Embebidos de la Universidad de Buenos Aires. En la siguiente imagen puede apreciarse una fotografía del mismo.
+
+\begin{center}
+   \includegraphics[scale=0.5]{Figuras/Robot_y_Joystick_1}
+   \captionof{figure}{Arquitectura del sistema}
+   \label{fig:esp32}
+\end{center}
+
+
+
 
 \vspace{25px}
 
@@ -162,8 +181,8 @@ Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hli
 \label{sec:proposito}
 
 \begin{consigna}{black}
-El propósito de este proyecto es desarrollar un robot de exploración ambiental en el que se implementen distintas funcionalidades (detalladas más adelante en la sección Alcance del Proyecto). Su arquitectura podría ser extrapolada a otros casos de uso y de valor en la industria como por ejemplo la exploración de suelos en el agro, la exploración submarina para la perforación de pozos de petróleo, o los antes mencionados en el estado del arte.
-Por otra parte, se pretende volcar en un desarrollo concreto y de aplicación industrial los conocimientos adquiridos durante la cursada de la la especialización de sistemas embebidos.
+El propósito de este proyecto es desarrollar una solución IoT para un robot de exploración ambiental para casos de uso de datos críticos en los que sea necesario contar con almacenamiento inmutable y transparente para todas las partes en una arquitectura blockchain 
+Por otra parte, se pretende volcar en un desarrollo concreto y de aplicación industrial los conocimientos adquiridos durante la cursada de la Maestria en Internet de las Cosas.
 
 \end{consigna}
 
@@ -171,19 +190,19 @@ Por otra parte, se pretende volcar en un desarrollo concreto y de aplicación in
 \label{sec:alcance}
 
 \begin{consigna}{black}
-Las funcionalidades incluidas en el alcance del proyecto serán:
+Contando con el hardware mencionado anteriormente que auspicia de componente edge en una arquitectura IoT, se propone la implementación de la plataforma tecnológica que alcanza:
+
 \begin{itemize}
-	\item sistema de desplazamiento terrestre.
-	\item operaciones de exploración (como por ejemplo medición de humedad, temperatura, presión ambiental, etc).
-	\item visualización de estado de exploración (lecturas de los sensores).
-	\item sistema de control por medio de un Joystick cableado.
+	\item La publicación del endpoint MQTT para la recepción de los datos enviados por el robot.
+	\item La adaptación del sistema embebido del robot de exploración ambiental para la conexión segura con el backend vía MQTT.
+	\item La arquitectura e implementación de los sistemas backend y el modelo de datos necesario para el almacenamiento de las mediciones enviadas por el robot.
+	\item La arquitectura, implementación y despliegue de la dApp (de-centralized application) y Smart Contracts necesarios para el almacenamiento de las mediciones en una red Blockchain (a definir).
+	\item La definición de métricas agregadas de valor y posterior arquitectura e implementación de los sistemas analíticos para procesar de forma batch y/o real-time (dependiendo de las métricas a definir) los datos enviados utilizando herramientas de procesamiento paralelo basadas en big data.
+	\item La implementación de la interfaz gráfica para poder visualizar los datos enviados y analíticas calculadas.
+
 \end{itemize}
 
-Queda fuera del alcance:
-\begin{itemize}
-	\item locomoción por cualquier otro medio que no sea terrestre,
-	\item cualquier otra función no contemplada en este alcance.
-\end{itemize}
+
 \end{consigna}
 
 
@@ -194,15 +213,18 @@ Queda fuera del alcance:
 Para el desarrollo del presente proyecto se supone que: 
 
 \begin{itemize}
-	\item será posible conseguir los componentes materiales necesarios,
+	\item será posible tener acceso a redes de desarrollo y testing de forma gratuita mediante la obtencion de Faucets,
+	\item será posible experimentar, desarrollar y hacer testing del backend cloud con el presupuesto estimado,
+	\item arquitectonicamente resultará viable implementar la solucion propuesta,
 	\item se dispondrá del conjunto de librerías, drivers y APIs de bajo nivel para el desarrollo de las funcionalidades planteadas en el alcance sin ser necesario el desarrollo de drivers y dichos componentes de bajo nivel. Ademas, tanto estos componentes de software como los open source de la comunidad de software libre utilizados durante el desarrollo del producto, se encontrará estable para que su integración en el proyecto no resulte en desvíos,	
 	\item tanto el prototipado de los componentes de software del sistema embebido como el ensamblado de los componentes de hardware del dispositivo no producirán desvíos considerables en el plan,
 	\item no habrá desvíos no contemplados en el plan que impidan o demoren entregas en el proyecto,
 	\item el comité académico encargado de la corrección tendrá disponibilidad para realizar la evaluación en las fechas planificadas de entrega,
-	\item el director asignado tendrá la disponibilidad de tiempo para darle seguimiento al proyecto.
-	\item el alumno contará con una disponibilidad de entre 3 y 5 horas diarias (incluyendo fines de semana) para el desarrollo del proyecto en el tiempo convenido.
-	\item los materiales y componentes adquiridos funcionaran de forma óptima y de acuerdo a lo esperado
-	\item los recursos no directamente relacionados con el desarrollo del proyecto, pero utilizados durante el mismo, funcionaran adecuadamente y en caso de falta de suministro (por ejemplo el servicio de internet) o averia (por ejemplo en el caso de la computadora utilizada) la resolucion sera expeditiva no suponiendo un desvio en el plan.
+	\item el director asignado tendrá la disponibilidad de tiempo para darle seguimiento al proyecto,
+	\item el alumno contará con una disponibilidad de entre 3 y 5 horas diarias (incluyendo fines de semana) para el desarrollo del proyecto en el tiempo convenido,
+	\item los materiales, componentes, software de terceros y servicios cloud utilizados funcionaran de forma óptima y de acuerdo a lo esperado,
+	\item el robot desarrollado seguira funcionando de forma estable sin ser necesario su ajuste, reparacion o modificacion a nivel hardware o sistema base (fuera de lo planificado para la integracion con MQTT),
+	\item los recursos no directamente relacionados con el desarrollo del proyecto, pero utilizados durante el mismo, funcionaran adecuadamente y en caso de falta de suministro (por ejemplo el servicio de internet) o averia (por ejemplo en el caso de la computadora utilizada) la resolucion sera expeditiva no suponiendo un desvio en el plan,
 	\item no sucederan nuevos eventos de impacto global (pandemia, guerras, etc) durante el desarrollo del proyecto que impliquen una demora o imposibilidad en la entrega.
 \end{itemize}
 
@@ -213,49 +235,8 @@ Para el desarrollo del presente proyecto se supone que:
 \label{sec:requerimientos}
 \begin{consigna}{black}
 A continuación se listan los requerimientos del producto:
-\begin{enumerate}	
-	\item Requerimientos funcionales		
-	\begin{enumerate}			
-		\item El sistema debe contar con funciones de desplazamiento para poder moverse hacia adelante y atrás, y poder girar radialmente hasta un ángulo de 360 grados.			
-		\item El sistema debe ser capaz de realizar las siguientes operaciones de exploración:			
-			\begin{enumerate}				
-				\item medición de humedad ambiental,				
-				\item medición de temperatura ambiental,				
-				\item medición de luminosidad ambiental,				
-				\item medición de presión ambiental.			
-			\end{enumerate}			
-		\item El sistema debe poder ser controlado a distancia mediante un joystick para que el dispositivo pueda realizar sus movimientos. En caso de que alguna de sus operaciones de exploración requiera algún mecanismo de control, el mismo también será integrado en el joystick.		
-		\item El sistema debe proveer un mecanismo de visualización de las operaciones de exploración al usuario que controla el dispositivo para poder ver el estado y lectura de las operaciones de exploración.		
-		\end{enumerate}	
-	\item Requerimientos de documentación		
-		\begin{enumerate}			
-			\item documentación de arquitectura técnica a alto nivel del diseño del sistema.			
-			\item documentación técnica de la implementación del software.			
-			\item documentación técnica de la implementación del hardware.			
-			\item manual de usuario.	
-			\item informe de avance.
-			\item memoria final.	
-		\end{enumerate}	
-	\item Requerimiento de testing		
-		\begin{enumerate}			
-			\item se debe incluir tests de integración de componentes,
-			\item se debe incluir tests funcionales (smoke test) del producto general.		
-		\end{enumerate}	
-	\item Requerimientos de la interfaz		
-		\begin{enumerate}			
-			\item la interfaz de usuario debe permitir visualizar las lecturas de cada uno de los sensores,			
-			\item debe haber una pequeña leyenda de la magnitud que se está midiendo y la unidad utilizada junto con el valor.		
-		\end{enumerate}	
-	\item Requerimientos opcionales		
-		\begin{enumerate}			
-			\item De interfaz: se permite agregar cualquier otra interfaz adicional que agregue mejoras en la experiencia de usuario			
-			\item De operaciones de exploración: se permite agregar cualquier otra operación adicional de exploración que agregue valor a exploración.	
-			\item De comunicación: se permite agregar comunicación inalámbrica.		
-	\end{enumerate}
-\end{enumerate}
 
-
-
+...
 
 \end{consigna}
 
@@ -265,50 +246,7 @@ A continuación se listan los requerimientos del producto:
 \begin{consigna}{black}
 A continuacion se listan las historias de usuario. La ponderación de \textit{story points} se realiza considerando 1 punto = 1 hora:
 
-\begin{enumerate}
-	\item Desplazamiento
-	\begin{itemize}
-		\item Detalle: Como explorador quiero que el robot pueda desplazarse por tierra con cuatro ruedas hacia adelante, atras y girar 360 grados en ambas direcciones.
-		\item Esfuerzo: 110 puntos
-		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
-	\end{itemize}
-	
-	\item Reporte de lecturas
-	\begin{itemize}
-		\item Detalle: Como explorador quiero ver las lecturas de exploración en un display desde el joystick, indicando las magnitudes y unidades usadas para saber lo que el robot está midiendo.
-		\item Esfuerzo: 116 puntos		
-		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
-	\end{itemize}
-	
-	\item Operaciones de exploración - presión ambiental
-	\begin{itemize}
-		\item Detalle: Como explorador quiero que el robot pueda medir la presión ambiental para que sea de utilidad en la aplicaciones de mineria y excavación.
-		\item Esfuerzo: 100 puntos		
-		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
-	\end{itemize}
-
-	\item Operaciones de exploración - temperatura y humedad ambiental
-	\begin{itemize}
-		\item Detalle: Como explorador quiero que el robot pueda medir temperatura y humedad para que sea de utilidad en aplicaciones donde sea necesario determinar dichos parámetros ambientales y una persona no pueda/deba acceder.
-		\item Esfuerzo: 100 puntos		
-		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
-	\end{itemize}
-
-	\item Operaciones de exploración - luminosidad ambiental
-	\begin{itemize}
-		\item Detalle: Como explorador quiero que el robot pueda medir luminosidad ambiental para poder usarlo en aplicaciones de exploración submarina.
-		\item Esfuerzo: 100 puntos		
-		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
-	\end{itemize}
-
-	\item Control del robot
-	\begin{itemize}
-		\item Detalle: Como explorador quiero un joystick para poder controlar los movimientos del robot.
-		\item Esfuerzo: 110 puntos		
-		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
-	\end{itemize}
-
-\end{enumerate}
+...
 \end{consigna}
 
 
@@ -317,20 +255,8 @@ A continuacion se listan las historias de usuario. La ponderación de \textit{st
 \label{sec:entregables}
 \begin{consigna}{black}
 Los entregables del proyecto son:
-\begin{itemize}
-	\item Documentación:
-	\begin{enumerate}				
-		\item Manual de usuario,			
-		\item Memoria final,
-		\item Informe de avance,
-		\item Documentación de arquitectura técnica del sistema,
-		\item Documentación técnica de diseño de software,
-		\item Documentación técnica de diseño de hardware.						
-	\end{enumerate}	
-	\item Código fuente del firmware.
-	\item Video demostrativo de uso. 
-	\item Informe final.
-\end{itemize}
+
+...
 \end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
@@ -339,82 +265,6 @@ Los entregables del proyecto son:
 \begin{consigna}{black}
 El conjunto de actividades y tareas que se realizarán durante el proyecto son:
 
-\begin{enumerate}
-
-\item Gestión del proyecto (45 hs)
-	\begin{enumerate}
-	\item Definición de alcance, funcionalidades e historias de usuario ( 3 hs).	
-	\item Armado del plan de actividades y tareas ( 3 hs).
-	\item Reconocimiento de riesgos (3 hs).
-	\item Definición de proceso de calidad (2 hs).
-	\item Confección de documentación de planificación de proyecto (10 hs).
-	\item Seguimiento y control de hitos, desvíos y riesgos(24 hs).	
-	\end{enumerate}
-\item Adquisición de materiales (16 hs)
-	\begin{enumerate}
-	\item Análisis y selección de materiales y proveedores (8 hs).
-	\item Compra de materiales (8 hs).
-	\end{enumerate}
-\item Investigación y prototipado (112 hs)
-	\begin{enumerate}
-	\item Prototipo de plataforma base (16 hs).
-	\item Prototipo de integración de sensor de temperatura y humedad en plataforma base (16 hs).
-	\item Prototipo de integración de sensor de luminosidad en plataforma base (16 hs).
-	\item Prototipo de integración de sensor de presión ambiental en plataforma base (16 hs).
-	\item Prototipo de integración de motores en plataforma base (16 hs).
-	\item Prototipo de integración de joystick en plataforma base (16 hs).
-	\item Prototipo de integración de display en plataforma base (16 hs).
-	\end{enumerate}
-\item Set-up ambiente de integración continua (actividad opcional) (44 hs)
-	\begin{enumerate}
-	\item Set-up imagen Docker con código de proyecto (24 hs).
-	\item Set-up servicio de integración continua cloud (12 hs).
-	\item Configuracion con Github para tomar los commits y ejecución de builds (8 hs).
-	\end{enumerate}
-\item Diseño y desarrollo de funcionalidades (120 hs)
-	\begin{enumerate}
-	\item Diseño del framework de orquestascion de componentes (24 hs).
-	\item Desarrollo de funcionalidad de medición de temperatura y humedad (16 hs).
-	\item Desarrollo de funcionalidad de medición de presión ambiental (16 hs).
-	\item Desarrollo de funcionalidad de medición de luminosidad (16 hs).
-	\item Desarrollo de funcionalidad de desplazamiento (16 hs).
-	\item Desarrollo de funcionalidad de lectura de comandos en el joystick analógico (16 hs).
-	\item Desarrollo de funcionalidad de escritura y formato de valores en el display (16 hs).
-	\end{enumerate}
-\item Testing (92 hs)
-	\begin{enumerate}
-	\item Desarrollo de tests de integración de sensores (12 hs).
-	\item Desarrollo de tests de integración de display (12 hs).
-	\item Desarrollo de tests de integración de joystick (12 hs).
-	\item Desarrollo de tests de integración de motores (12 hs).
-	\item Desarrollo de tests de integracion de producto (12 hs).
-	\item Tests funcional de interfaz (8 hs).
-	\item Test de regresión (8 hs)
-	\item Tests funcional del producto final (16 hs).
-	\end{enumerate}
-\item Ensamblado del hardware (60 hs)
-	\begin{enumerate}
-	\item Ensamblado del joystick (24 hs).
-	\item Enamblado del robot (36 hs).
-	\end{enumerate}
-\item Funcionalidades extras (actividad opcional) (72 hs)
-	\begin{enumerate}
-	\item Prototipo de comunicación inalámbrica (36 hs).
-	\item Prototipo de visión por cámara integrada (36 hs).
-	\end{enumerate}
-\item Documentación (160 hs)
-	\begin{enumerate}				
-	\item Escritura de manual de usuario (24 hs).			
-	\item Escritura de memoria final (40 hs).
-	\item Escritura de informe de avance (12 hs).
-	\item Escritura de documentación de arquitectura técnica del sistema (24 hs).
-	\item Escritura de documentación técnica de diseño de software (24 hs).
-	\item Escritura de documentación técnica de diseño de hardware (24 hs).		
-	\item Creacion del video demostrativo de uso (12 hs).				
-	\end{enumerate}	
-\end{enumerate}
-
-Cantidad total de horas: (721 hs)
 
 \end{consigna}
 
@@ -431,29 +281,19 @@ A continuación se detalla la lista de actividades que se realizarán durante el
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Id	& Tarea           									& Duración 			& Dependencia	& Predecesora 	\\ \hline
-1	& Gestión del proyecto 								& 45 h / 12 d		& -				&  - 		\\ \hline
-2	& Adquisición de materiales 						& 16 h / 4 d		& -				&  -      		\\ \hline
-3	& Investigación y prototipado						& 112 h / 28 d		& -				&  -      		\\ \hline
-4	& Set-up integración continua (opcional)			& 44 h / 11 d   	& -        		&  -			\\ \hline
-5	& Diseño y desarrollo de funcionalidades    		& 120 h / 30 d		& -			 	& 3 , 2			\\ \hline
-6	& Testing								    		& 92 h / 23 d		& -				& 5 , 8			\\ \hline
-7	& Ensamblado del hardware				    		& 60 h / 15 d		& -				& -				\\ \hline
-8	& Funcionalidades extras (opcional)					& 72 h / 18 d		& -				& - 			\\ \hline
-9	& Documentación    									& 160 h / 40 d		& -			 	& -				\\ \hline
+1	& Gestión del proyecto 								& -		& -				&  - 		\\ \hline
+2	& Adquisición de materiales 						& -	& -				&  -      		\\ \hline
+3	& Investigación y prototipado						& -		& -				&  -      		\\ \hline
+4	& Set-up integración continua (opcional)			& -   	& -        		&  -			\\ \hline
+5	& Diseño y desarrollo de funcionalidades    		& -		& -			 	& -			\\ \hline
+6	& Testing								    		& -		& -				& -			\\ \hline
+7	& Ensamblado del hardware				    		& -		& -				& -				\\ \hline
+8	& Funcionalidades extras (opcional)					& -		& -				& - 			\\ \hline
+9	& Documentación    									& -		& -			 	& -				\\ \hline
 
 \end{tabularx}
 \end{table}
 
-
-Como se puede apreciar en la figura 2, el camino crítico está formado por las tareas: [3 - 5 - 6] y la duración mínima es de 81 días.
-
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.9\textwidth]{./Figuras/activity-on-node.png}
-\caption{Diagrama de \textit{Activity on Node}.}
-\label{fig:diagBloques}
-\end{figure}
 \end{consigna}
 
 
@@ -461,28 +301,7 @@ Como se puede apreciar en la figura 2, el camino crítico está formado por las 
 \label{sec:gantt}
 
 \begin{consigna}{black}
-En las siguientes figuras se presenta el diagrama de Gantt realizado con el paquete de \textit{GanttProject} conteniendo el plan de actividades del proyecto. En la figura 3 se puede apreciar el plan general a alto nivel mientras que en las figuras 4 y 5, se muestran los detalles de las tareas. 
 
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=0.95\textwidth]{./Figuras/gantt-part-0.png}
-\caption{Diagrama de Gantt general a alto nivel.}
-\label{fig:diagGantt}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=0.95\textwidth]{./Figuras/gantt-part-1.png}
-\caption{Diagrama de Gantt - detalles de tareas (parte 1).}
-\label{fig:diagGantt}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=0.95\textwidth]{./Figuras/gantt-part-2.png}
-\caption{Diagrama de Gantt - detalles de tareas (parte 2)}
-\label{fig:diagGantt}
-\end{figure}
 
 \end{consigna}
 
@@ -505,234 +324,69 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- ESP32 & 
+ - & 
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 10,00} &
-  \multicolumn{1}{c|}{\$ 10,00} \\ \hline
- Joystick analógico &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 4,00} &
-  \multicolumn{1}{c|}{\$ 4,00} \\ \hline
- Kit de 4 motores DC 3-6 V con rueditas &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 12,00} &
-  \multicolumn{1}{c|}{\$ 12,00} \\ \hline
- Sensor BMP280 &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 7,00} &
-  \multicolumn{1}{c|}{\$ 7,00} \\ \hline
- Sensor DHT11 &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 6,00} &
-  \multicolumn{1}{c|}{\$ 6,00} \\ \hline
- Fotoresitor &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 5,00} &
-  \multicolumn{1}{c|}{\$ 5,00} \\ \hline
- Cables dupont macho-macho &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 7,00} &
-  \multicolumn{1}{c|}{\$ 7,00} \\ \hline
- Cables dupont macho-hembra &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 7,00} &
-  \multicolumn{1}{c|}{\$ 7,00} \\ \hline
- Plaqueta de cobre para montar &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 20,00} &
-  \multicolumn{1}{c|}{\$ 20,00} \\ \hline
- Varios / Imprevistos &
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+ - &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 30,00} &
-  \multicolumn{1}{c|}{\$ 30,00} \\ \hline
+  \multicolumn{1}{c|}{\$ 0,00} &
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{3}{|c|}{TOTAL} &
-  \multicolumn{1}{c|}{\$ 108,00} \\ \hline
+  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
 \end{tabularx}%
 \end{table}
 
 
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
-
 \begin{consigna}{black}
-a) Identificación de riesgos:
 
-\begin{enumerate}
-
-\item Riesgo de demora
-\begin{itemize}
-	\item Severidad (S): 9 - Teniendo en cuenta que solo habrá un recurso (el alumno) asignado al proyecto desarrollando el producto, una demora en cualquier tarea puede implicar demora en la fecha de entrega.
-	\item Ocurrencia (O): 3 - Dada la planificación y priorización de tareas, el riesgo de demora es bajo, pero no nulo.
-\end{itemize}
-
-
-\item Riesgo de no contar con toda la funcionalidad deseada
-\begin{itemize}
-	\item Severidad (S): 9 - El no cumplimiento con la funcionalidad deseada pone en riesgo el éxito del proyecto.
-	\item Ocurrencia (O): 2 - La probabilidad de no poder cumplir con la funcionalidad deseada es realmente bajo teniendo en cuenta que tanto el alumno como el director tienen experiencia en el desarrollo de integraciones similares y los materiales necesarios son de fácil obtención.
-\end{itemize}
-
-\item Riesgo de calidad insuficiente
-\begin{itemize}
-	\item Severidad (S): 4 - La calidad insuficiente no pone en riesgo el cumplimiento con la funcionalidad pero si compromete la estabilidad y resistencia a fallas del producto, por lo que puede desencadenar en un producto poco o menos confiable.
-	\item Ocurrencia (O): 4 - Se estima que con las técnicas empleadas durante el desarrollo del producto, este riesgo tiene una baja probabilidad de ocurrencia.
-\end{itemize}
-
-
-\item Riesgo de desvío en costos
-\begin{itemize}
-	\item Severidad (S): 5 - La ocurrencia de este riesgo impacta en los costos del proyecto, pero no imposibilita ni demora la entrega del producto.
-	\item Ocurrencia (O): 8 - Teniendo en cuenta que los precios son estimados en base a los productos que se logran identificar al momento de realizar el presente plan, es altamente posible que haya artículos adicionales que requieran ser comprados y/o que los costos finales difieran de los esperados. Además de lo antes mencionado, existe el factor inflación argentina como otro disparador de este riesgo.
-\end{itemize}
-
-\item Riesgo de indisponibilidad de recursos
-\begin{itemize}
-	\item Severidad (S): 5 - Al momento de realizar el presente plan se identifican ciertos recursos y se asume que será posible disponer de ellos. No obstante, existe el riesgo de que esto no suceda así, y sea más difícil por ejemplo adquirir ciertos materiales, o hayan recursos no directamente asociados al proyecto pero cuya ausencia lo afectan, como por ejemplo fallas en el acceso a internet, el mal funcionamiento de la computadora utilizada para su desarrollo, etc.
-	\item Ocurrencia (O): 2 - Se espera que la probabilidad de ocurrencia de este riesgo sea realmente baja.
-\end{itemize}
-
-\end{enumerate}
-
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
-
-\begin{table}[htpb]
-\centering
-\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
-\hline
-\rowcolor[HTML]{C0C0C0}
-Riesgo 													& S & O & RPN & S* & O* & RPN* \\ \hline
-Riesgo de demora en la entrega							& 9 & 3 & 27 &  9  &  1  & 9    \\ \hline
-Riesgo de no contar con toda la funcionalidad deseada	& 9 & 2 & 18  & 7  & 2 &  14    \\ \hline
-Riesgo de calidad insuficiente							& 4 & 4 & 16 &  4 &  2 &   8  \\ \hline
-Riesgo de desvío en costos								& 5 & 8 & 40 & 5  & 3  &  15   \\ \hline
-Riesgo de indisponibilidad de recursos					& 5 & 2 & 10 & -  & -  &   -   \\ \hline
-\end{tabularx}%
-\end{table}
-
-Criterio adoptado:
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 15.
-
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
-
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
-\begin{enumerate}
-	\item Riesgo de demora en la entrega: las posibles causas del evento asociado están vinculadas a situaciones no controlables ni predecibles que impactan de alguna manera en la disponibilidad de tiempo o alguno de los recursos necesarios para la realización del proyecto. Con el fin de cumplir con la entrega de la funcionalidad en la fecha acordada se consideran como posibles acciones de mitigación la eliminación (o no realización) de otras tareas dentro del plan, como por ejemplo, tareas de documentación, de ensamblado de hardware, de testing, y de ser necesario, de desarrollo de funcionalidad. Se asume que la eliminación de estas tareas ponen en riesgo la calidad del producto y/o contar con toda la funcionalidad esperada.
-	\begin{itemize}
-		\item Nueva Severidad (S*): 9 - No cambia.
-		\item Nueva Ocurrencia (O*): 1.
-	\end{itemize}
-	
-	\item Riesgo de no contar con toda la funcionalidad deseada: las posibles causas del evento asociado están vinculadas a situaciones que impactan de alguna manera en la viabilidad o desarrollo de alguna de las funcionalidades en el tiempo planificado. Por este motivo se considera como herramienta de mitigación sacrificar algún otro entregable, como por ejemplo la cobertura de testing y/o documentación, lo cual puede implicar sacrificar calidad, mantenibilidad y/o usabilidad respectivamente.
-	\begin{itemize}
-		\item Nueva Severidad (S*): 7 - Dado que tras la mitigación se incrementa el impacto por pérdida de calidad.
-		\item Nueva Ocurrencia (O*): 2 - Se reduce mucho la probabilidad de ocurrencia dado que se agrega tiempo para el desarrollo de funcionalidad eliminando el tiempo empeñado para el desarrollo de tests y/o documentación.
-	\end{itemize}
-	
-	
-	\item Riesgo de calidad insuficiente: las posibles causas del evento asociado están vinculadas a la falta de estabilidad del producto. Para mitigar este problema se plantea incrementar las prácticas de testing y CI/CD (como actividad opcional) siempre que esto no dispare el riesgo 1, el cual podría generar una demora una demora en el proyecto.
-	\begin{itemize}
-		\item Nueva Severidad (S*): 4 - No cambia.
-		\item Nueva Ocurrencia (O*): 2 - Se reduce la probabilidad de que esto suceda.
-	\end{itemize}	
-	
-	\item Riesgo de desvío en costos: Las posibles causas del evento que dispara este riesgo son olvidar estimar algún componente y el impacto de la inflación en Argentina. Para mitigar el primer factor se agrega el item \textit{Varios / Imprevistos} a la tabla de materiales con el fin de proveer holgura en el caso de no contemplar algún componente adicional. Para mitigar el factor inflación se plantean los precios en dólares americanos.
-	\begin{itemize}
-		\item Nueva Severidad (S*): 5 - Esto no varía.
-		\item Nueva Ocurrencia (O*): 3 - Se reduce mucho la probabilidad de ocurrencia dado que la inflación del dólar estadounidense es menor que la del peso argentino.
-	\end{itemize}
-\end{enumerate}
-%\end{enumerate}
 \end{consigna}
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 \begin{consigna}{black}
-A continuación se detalla cómo se realizará el control de calidad para cada uno de los requerimientos del producto:
-\begin{enumerate}	
-			
-		\item Funciones de desplazamiento (hacia adelante, atrás, y radialmente en 360 grados)
-		\begin{enumerate}				
-			\item Verificación previo a la entrega: se verificará mediante la ejecución de tests de integración para esta funcionalidad.			
-			\item Validación: el cliente validará la funcionalidad en el producto final.			
-		\end{enumerate}		
-		
-		\item Operaciones de exploración (medición de humedad, temperatura, luminosidad y presión ambiental)
-		\begin{enumerate}				
-			\item Verificación previo a la entrega: se verificará mediante la ejecución de tests de integración para esta funcionalidad.			
-			\item Validación: el cliente validará la funcionalidad en el producto final.			
-		\end{enumerate}		
-	
-		\item Control a distancia mediante joystick
-		\begin{enumerate}				
-			\item Verificación previo a la entrega: se verificará mediante la ejecución de tests de integración para esta funcionalidad.			
-			\item Validación: el cliente validará la funcionalidad en el producto final.			
-		\end{enumerate}			
-	
-		\item Visualización/reporte de las operaciones de exploración 
-		\begin{enumerate}				
-			\item Verificación previo a la entrega: se verificará mediante la ejecución de tests de integración para esta funcionalidad.			
-			\item Validación: el cliente validará la funcionalidad en el producto final.			
-		\end{enumerate}			
-		
-		\item Documentación técnica, manual de usuario, informe de avance y memoria final
-		\begin{enumerate}				
-			\item Verificación previo a la entrega: se verificará mediante la revisión de los documentos.			
-			\item Validación: el cliente validará los documentos.			
-		\end{enumerate}			
-		
-		\item Testing
-		\begin{enumerate}				
-			\item Verificación previo a la entrega: Se verificará el cumplimiento con los tests por funcionalidad previo la integración de cada componente en el prototipo final. 
-			\item Validación: el cliente validará el reporte de los tests de integración.
-		\end{enumerate}			
-		
-		\item Requerimientos de la interfaz		
-		\begin{enumerate}			
-			\item Verificación previo a la entrega: Se verificará el cumplimiento con los requerimientos de interfaz mediante un smoke test, además del test funcional final sobre el prototipo integrado.			
-			\item Validación: el cliente validará el cumplimiento con la interfaz sobre el producto final.		
-		\end{enumerate}	
-		
-		\item Para los requerimientos adicionales (de interfaz, operaciones y comunicación)
-		\begin{enumerate}			
-			\item Verificación previo a la entrega: una vez realizada la prueba de concepto y determinada la viabilidad, el cliente confirmará si la funcionalidad provista se ajusta al requerimiento opcional. Si esto es así esta funcionalidad será prototipada, se desarrollarán sus tests de integración, se integrará al producto y verificará el resultado de los tests por regresión, así como el correcto funcionamiento del producto final.
-			\item Validación: el cliente validará la funcionalidad como parte del producto final.
-	\end{enumerate}
-\end{enumerate}
-
 
 \end{consigna}
 
 \section{15. Procesos de cierre}   
 \label{sec:cierre}
-
 \begin{consigna}{black}
-A continuación se detallan las pautas y actividades para realizar la reunión final de evaluación del proyecto:
-
-\begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:
-	 - Responsable: \authorname:
-	\begin{itemize}			
-		\item Se evaluarán los requerimientos y los objetivos alcanzados frente a los planteados en el plan.
-		\item Se pondrá especial interés en verificar si se cumplieron los objetivos de tiempo y funcionalidad propuestos.
-	\end{itemize}	    	 
-	
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
-	 - Responsable: \authorname:
-	\begin{itemize}			
-		\item Se evaluará cuál fue la configuración que mejores resultados arrojó para los objetivos planteados en el plan.
-		\item Se identificarán nuevas herramientas o procedimientos, en caso que corresponda.
-	\end{itemize}	    	 
-	
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores - Responsable: \authorname :
-	\begin{itemize}			
-		\item Luego de la presentación del proyecto mediante la defensa pública, se procederá a agradecer a todas las personas que participaron del desarrollo del proyecto, al director, a los compañeros y a las autoridades de la CESE.
-	\end{itemize}	 
-	
-	    	 
-	 
-\end{itemize}
 
 \end{consigna}
 
