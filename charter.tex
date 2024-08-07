@@ -10,7 +10,7 @@
 \titulo{Solución IoT para robot de exploración ambiental de datos críticos con almacenamiento en blockchain} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Internet de las Cosas} 
+\posgrado{Carrera de Maestria en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Internet de las Cosas} 
 %\posgrado{Carrera de Especialización en Intelegencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
@@ -236,8 +236,80 @@ Para el desarrollo del presente proyecto se supone que:
 \begin{consigna}{black}
 A continuación se listan los requerimientos del producto:
 
-...
+\begin{enumerate}	
+	\item Requerimientos funcionales		
+	\begin{enumerate}	
+		
+		\item El robot de exploracion ambiental debe poder enviar a la plataforma datos de mediciones de parametros ambientales, incluyendo los datos de fecha, hora, localizacion geografica (puede ser implementada como un mock inicialmente) y la categorizacion si es o no un valor critico.
+		\item El robot de exploracion ambiental debe incorporar logica para categorizar los valores medidos de cada parametro ambiental como valores criticos si:
+		\begin{enumerate}				
+			\item representan un maximo o minimo global sensado hasta el momento,				
+			\item representan un maximo o minimo local durante el ultimo dia.				
+		\end{enumerate}			
+		\item La plataforma debe poder recibir y almacenar las mediciones de parametros ambientales enviadas por el robot.
+		\item La plataforma debe poder procesar las mediciones de parametros ambientales enviadas por el robot para generar metricas de valor para el usuario de negocio.		
+		\item El la plataforma proveer dos front-end con interfaz web:
+			\begin{enumerate}				
+				\item el front-end para el usuario de negocio,				
+				\item el front-end para el usuario administrador.				
+			\end{enumerate}			
+		
+		\item El front-end para el usuario de negocio debe proveer metricas para visualizar:
+			\begin{enumerate}				
+				\item las lecturas historicas almacenadas,				
+				\item agregaciones (maximo, minimo, promedio, etc) de cada parametro ambiental agrupado por frecuencias (ventanas de tiempo) y coordenadas geograficas,				
+				\item las referencias a los datos persistidos en blockchain.
+			\end{enumerate}			
+		\item El front-end para el usuario de administracion debe permitir:
+			\begin{enumerate}				
+				\item acceder a los diferentes recursos utilizados por la herramienta (topics MQTT, smart contracts, buckets, etc),
+				\item resetear valores y estado.			
+			\end{enumerate}			
+		\end{enumerate}	
 
+					
+	\item Requerimientos no funcionales		
+	\begin{enumerate}	
+		\item La plataforma debe contar con al menos un backend de procesamiento y acceso a datos operacionales para la logica de negocio.
+		\item La plataforma debe contar con al menos un backend de acceso, procesamiento, almacenamiento de datos analitics para la  generacion de metricas.		
+		\item El envio de los valores ambientales sensados al backend debe ser mediante MQTT.
+		\item Las lecturas ambientales categorizadas como criticas deben ser almacenadas en blockchain para garantizar fiable, inmutabilidad.
+		\item La gestion de datos almacenados en blockchain debe ser implementada mediante smart contracts desplegados en la red.
+		\item La interaccion con los smart contracts debe realizarse desde una dApp.
+		\item Los sistemas de transferencia y almacenamiento de datos utilizados deben contar con seguiridad, permitiendo encriptacion, autenticacion y autorizacion.	
+		\end{enumerate}	
+		
+	\item Requerimientos de documentación		
+		\begin{enumerate}			
+			\item documentación de arquitectura técnica a alto nivel del diseño del sistema.			
+			\item documentación técnica de la implementación del software.
+			\item manual de usuario.	
+			\item memoria final.	
+		\end{enumerate}	
+	\item Requerimiento de testing		
+		\begin{enumerate}			
+			\item se debe incluir tests de unitarios de componentes,
+			\item se debe incluir tests funcionales (smoke test) del producto general.		
+		\end{enumerate}	
+	
+	\item Requerimientos opcionales		
+		\begin{enumerate}			
+			\item De infraestructura y despliegue: 
+				\begin{enumerate}			
+					\item se permite realizar el despliege de la dApp en un IPFS (preferentemente) o en la nube.					
+					\item se permite agregado hardware al robot para la captura de datos adicionales.
+					\item se permite agregar automatizacion para la creacion de la infraestructura como codigo.
+				\end{enumerate}			
+			
+			\item De datos: 
+				\begin{enumerate}			
+					\item se permite almacenar cualquier otro dato adicional sensado o derivado.
+					\item se permite agregar cualquier implementacion de gobierno de datos.	
+					\item se permite almacenar cualquier otra metrica o grafico de eplotacion de datos adicional.
+				\end{enumerate}
+		
+	\end{enumerate}
+\end{enumerate}
 \end{consigna}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
@@ -246,7 +318,74 @@ A continuación se listan los requerimientos del producto:
 \begin{consigna}{black}
 A continuacion se listan las historias de usuario. La ponderación de \textit{story points} se realiza considerando 1 punto = 1 hora:
 
-...
+
+\begin{enumerate}
+
+	\item Metricas agrupadas
+	\begin{itemize}
+		\item Detalle: Como usuario quiero una metrica que me indique los valores agregados de minimo, maximo y promedio de cada parametro ambiental agrupado por fecha y coordenadas.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+	
+	\item Metricas historicas
+	\begin{itemize}
+		\item Detalle: Como usuario quiero poder ver en series de tiempo los valores medidos para los diferentes parametros ambientales.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+	
+	\item Graficos de explotacion
+	\begin{itemize}
+		\item Detalle: Como usuario quiero contar con metricas graficas (heatmap, pie, etc) para poder visualizar mas facilmente los agregados.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+	
+	\item Smart contracts
+	\begin{itemize}
+		\item Detalle: Como arquitecto quiero que el acceso a los datos en blockchain se realize por medio de la implementacion de smart contracts.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+	
+	\item dApp
+	\begin{itemize}
+		\item Detalle: Como arquitecto quiero que el acceso a los smart contracts se realize desde una dApp utilizando una biblioteca Web3.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+	
+	\item Integracion MQTT
+	\begin{itemize}
+		\item Detalle: Como arquitecto quiero que el envio de los datos desde el robot al backend se realize mediante MQTT.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+
+
+	\item Arquitectura operacional
+	\begin{itemize}
+		\item Detalle: Como arquitecto quiero que la arquitctura de tanto los front-ends como el back-end sean web exponiendo APIs via servicios REST. La interfaz grafica debe ser implementada en Angular u otro framework MVC/MVVC de Javascript.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+
+	\item Arquitectura analitica
+	\begin{itemize}
+		\item Detalle: Como arquitecto quiero que las metricas de valor sean generadas de forma batch mediante un pipeline de datos.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+
+	\item Encriptacion punto a punto
+	\begin{itemize}
+		\item Detalle: Como ingeniero de seguridad quiero que los datos transmitidos en cada segmento viajen encriptados mediante certificados.
+		\item Esfuerzo: 24 puntos
+		\item Criterio de aceptación: funcionalidad verificada (incluyendo prototipado, integración y ensamblado), tests y documentación.
+	\end{itemize}
+	
+\end{enumerate}
 \end{consigna}
 
 
@@ -255,8 +394,19 @@ A continuacion se listan las historias de usuario. La ponderación de \textit{st
 \label{sec:entregables}
 \begin{consigna}{black}
 Los entregables del proyecto son:
+\begin{itemize}
+	\item Video demostrativo del uso de la plataforma. 		
+	\item Código fuente del firmware.
+	\item Código fuente del software.
+	\item Documentación:
+	\begin{enumerate}				
+		\item Manual de usuario,			
+		\item Memoria final,
+		\item Documentación de arquitectura técnica del sistema (hardware y software),
+	\end{enumerate}	
+	
 
-...
+\end{itemize}
 \end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
@@ -282,14 +432,11 @@ A continuación se detalla la lista de actividades que se realizarán durante el
 \rowcolor[HTML]{C0C0C0} 
 Id	& Tarea           									& Duración 			& Dependencia	& Predecesora 	\\ \hline
 1	& Gestión del proyecto 								& -		& -				&  - 		\\ \hline
-2	& Adquisición de materiales 						& -	& -				&  -      		\\ \hline
-3	& Investigación y prototipado						& -		& -				&  -      		\\ \hline
-4	& Set-up integración continua (opcional)			& -   	& -        		&  -			\\ \hline
-5	& Diseño y desarrollo de funcionalidades    		& -		& -			 	& -			\\ \hline
-6	& Testing								    		& -		& -				& -			\\ \hline
-7	& Ensamblado del hardware				    		& -		& -				& -				\\ \hline
-8	& Funcionalidades extras (opcional)					& -		& -				& - 			\\ \hline
-9	& Documentación    									& -		& -			 	& -				\\ \hline
+2	& Investigación y prototipado						& -		& -				&  -      		\\ \hline
+3	& Set-up integración continua (opcional)			& -   	& -        		&  -			\\ \hline
+4	& Diseño y desarrollo de funcionalidades    		& -		& -			 	& -			\\ \hline
+5	& Testing								    		& -		& -				& -			\\ \hline
+6	& Documentación    									& -		& -			 	& -				\\ \hline
 
 \end{tabularx}
 \end{table}
@@ -324,49 +471,29 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- - & 
+ Procesamiento cloud & 
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
+  \multicolumn{1}{c|}{\$ 50,00} &
+  \multicolumn{1}{c|}{\$ 50,00} \\ \hline
+ Almacenamiento cloud &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
+  \multicolumn{1}{c|}{\$ 20,00} &
+  \multicolumn{1}{c|}{\$ 20,00} \\ \hline
+ Transferencia de datos cloud &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
+  \multicolumn{1}{c|}{\$ 50,00} &
+  \multicolumn{1}{c|}{\$ 50,00} \\ \hline
+ Alojamiento IPFS &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
+  \multicolumn{1}{c|}{\$ 20,00} &
+  \multicolumn{1}{c|}{\$ 20,00} \\ \hline
+ Varios &
   \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
-  \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
-  \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
-  \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
-  \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
- - &
-  \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{\$ 0,00} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+  \multicolumn{1}{c|}{\$ 20,00} &
+  \multicolumn{1}{c|}{\$ 20,00} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{3}{|c|}{TOTAL} &
-  \multicolumn{1}{c|}{\$ 0,00} \\ \hline
+  \multicolumn{1}{c|}{\$ 160,00} \\ \hline
 \end{tabularx}%
 \end{table}
 
@@ -375,12 +502,134 @@ Descripción &
 \label{sec:riesgos}
 \begin{consigna}{black}
 
+\begin{enumerate}
+
+\item Riesgo de demora
+\begin{itemize}
+	\item Severidad (S): 9 - Teniendo en cuenta que solo habrá un recurso (el alumno) asignado al proyecto desarrollando el producto, una demora en cualquier tarea puede implicar demora en la fecha de entrega.
+	\item Ocurrencia (O): 5 - Dado el desafio de innovacion planteado por el alcance el la probabilidad de demora es media.
+\end{itemize}
+
+
+\item Riesgo de no contar con toda la funcionalidad deseada
+\begin{itemize}
+	\item Severidad (S): 9 - El no cumplimiento con la funcionalidad deseada pone en riesgo el éxito del proyecto.
+	\item Ocurrencia (O): 5 - Dado el desafio de innovacion planteado por el alcance el la probabilidad de no contar con toda la funcionalidad es media.
+\end{itemize}
+
+\item Riesgo de calidad insuficiente
+\begin{itemize}
+	\item Severidad (S): 4 - La calidad insuficiente no pone en riesgo el cumplimiento con la funcionalidad pero si compromete la estabilidad y resistencia a fallas del producto, por lo que puede desencadenar en un producto poco o menos confiable.
+	\item Ocurrencia (O): 4 - Se estima que con las técnicas empleadas durante el desarrollo del producto, este riesgo tiene una baja probabilidad de ocurrencia.
+\end{itemize}
+
+
+\item Riesgo de desvío en costos
+\begin{itemize}
+	\item Severidad (S): 5 - La ocurrencia de este riesgo impacta en los costos del proyecto, pero no imposibilita ni demora la entrega del producto.
+	\item Ocurrencia (O): 8 - Teniendo en cuenta que los precios son estimados sin haber cerrado la definicion de la arquitectura final y la inflacion argentina, es muy probable que exista un desvio en costos.
+\end{itemize}
+
+\item Riesgo de indisponibilidad de recursos
+\begin{itemize}
+	\item Severidad (S): 5 - Al momento de realizar el presente plan se identifican ciertos recursos y se asume que será posible disponer de ellos. No obstante, existe el riesgo de que esto no suceda así, y sea más difícil por ejemplo adquirir Faucets para el acceso a redes de desarrollo blockchain; realizar el despliegue de la dApp; acceder a servicios cloud que soporten todas las prestaciones necesarias por la arquitectura; o haya recursos no directamente asociados al proyecto pero cuya ausencia lo afectan, como por ejemplo fallas en el acceso a internet, el mal funcionamiento de la computadora utilizada para su desarrollo, fallas en el hardware del robot que hagan necesario su reparacion, etc.
+	\item Ocurrencia (O): 2 - Se espera que la probabilidad de ocurrencia de este riesgo sea realmente baja.
+\end{itemize}
+
+\end{enumerate}
+
+b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Riesgo 													& S & O & RPN & S* & O* & RPN* \\ \hline
+Riesgo de demora en la entrega							& 9 & 5 & 45 &	9  &  1  & 9    \\ \hline
+Riesgo de no contar con toda la funcionalidad deseada		& 9 & 5 & 45 & 	10  & 1 &  10    \\ \hline
+Riesgo de calidad insuficiente							& 6 & 4 & 24 &  	4 &  2 &   8  \\ \hline
+Riesgo de desvío en costos								& 5 & 8 & 40 & 	5  & 3  &  15   \\ \hline
+Riesgo de indisponibilidad de recursos					& 5 & 2 & 10 & 	-  & -  &   -   \\ \hline
+\end{tabularx}%
+\end{table}
+
+Criterio adoptado:
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 15.
+
+Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+
+c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
+\begin{enumerate}
+	\item Riesgo de demora en la entrega: las posibles causas del evento asociado están vinculadas a situaciones no controlables ni predecibles que impactan de alguna manera en la disponibilidad de tiempo o alguno de los recursos necesarios para la realización del proyecto. Con el fin de cumplir con la entrega de la funcionalidad en la fecha acordada se consideran como posibles acciones de mitigación la eliminación (o no realización) de otras tareas dentro del plan, como por ejemplo, tareas de documentación, de testing, y de ser necesario, de desarrollo de funcionalidad. Se asume que la eliminación de estas tareas ponen en riesgo la calidad del producto y/o contar con toda la funcionalidad esperada.
+	\begin{itemize}
+		\item Nueva Severidad (S*): 9 - No cambia.
+		\item Nueva Ocurrencia (O*): 1.
+	\end{itemize}
+	
+	\item Riesgo de no contar con toda la funcionalidad deseada: las posibles causas del evento asociado están vinculadas a situaciones que impactan de alguna manera en la viabilidad o desarrollo de alguna de las funcionalidades en el tiempo planificado. Por este motivo se considera como herramientas de mitigación: sacrificar algún otro entregable (como por ejemplo la cobertura de testing y/o documentación, lo cual puede implicar sacrificar calidad, mantenibilidad y/o usabilidad respectivamente), o bien redefinir el alcance y funcionalidad en base a lo que es posible desarrollar.
+	\begin{itemize}
+		\item Nueva Severidad (S*): 10 - Dado que tras la mitigación se incrementa el impacto por pérdida de calidad.
+		\item Nueva Ocurrencia (O*): 1 - Se reduce mucho la probabilidad de ocurrencia dado que se agrega tiempo para el desarrollo de funcionalidad eliminando el tiempo empeñado para el desarrollo de tests y/o documentación.
+	\end{itemize}
+	
+	
+	\item Riesgo de calidad insuficiente: las posibles causas del evento asociado están vinculadas a la falta de estabilidad del producto, sea por una arquitectura demasiado compleja o ineficiente, o la presencia de bugs en el desarrollo. Para mitigar este problema se plantea emplear mas tiempo en el desarrollo de pruebas de concepto y definicion de la arquitectura, ademas incrementar las prácticas de testing y CI/CD (como actividad opcional) siempre que esto no dispare el riesgo 1, el cual podría generar una demora una demora en el proyecto.
+	\begin{itemize}
+		\item Nueva Severidad (S*): 6 - No cambia.
+		\item Nueva Ocurrencia (O*): 2 - Se reduce la probabilidad de que esto suceda.
+	\end{itemize}	
+	
+	\item Riesgo de desvío en costos: Las posibles causas del evento que dispara este riesgo estan vinculadas a la dificultad de estimar los costos de procesamiento, almacenamiento y transferencia de datos tanto en la nube publica como en la red blockchain a utilizar, debido a que la arquitectura no ha sido definida al momento de la escritura del presente plan y los costos vinculados a su implementacion varian dependiendo del proveedor, red y tecnologias utilizadas. Ademas, indirectamente asociado a esto, es posible olvidar estimar algún componente. Finalmente el impacto de la inflación en Argentina puede ser otro causal del desvio en costos. Para mitigar el primer factor se agrega el item \textit{Varios / Imprevistos} a la tabla de materiales con el fin de proveer holgura en el caso de no contemplar algún componente adicional. Para mitigar el factor inflación se plantean los precios en dólares americanos.
+	\begin{itemize}
+		\item Nueva Severidad (S*): 5 - Esto no varía.
+		\item Nueva Ocurrencia (O*): 3 - Se reduce mucho la probabilidad de ocurrencia dado que la inflación del dólar estadounidense es menor que la del peso argentino.
+	\end{itemize}
+\end{enumerate}
+
+
 \end{consigna}
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 \begin{consigna}{black}
+\begin{enumerate}
+		\item Funcionalidad del front-end negocio: Metricas y graficos de explotacion
+		\begin{enumerate}				
+			\item Verificación previo a la entrega: se verificará mediante la ejecución de tests de integración para esta funcionalidad.			
+			\item Validación: el cliente validará la funcionalidad en el producto final.			
+		\end{enumerate}		
+		
+		\item Funcionalidad del front-end admin: Control de la plataforma
+		\begin{enumerate}				
+			\item Verificación previo a la entrega: se verificará mediante la ejecución de tests de integración para esta funcionalidad.			
+			\item Validación: el cliente validará la funcionalidad en el producto final.			
+		\end{enumerate}		
+	
+		\item Funcionalidad de la DApp, almacenamiento en blockchain y ejecucion de smart contracts
+		\begin{enumerate}				
+			\item Verificación previo a la entrega: se verificará mediante la ejecución de tests de integración para esta funcionalidad.			
+			\item Validación: el cliente validará la funcionalidad en el producto final.			
+		\end{enumerate}			
+	
+			
+		
+		\item Documentación técnica, manual de usuario y memoria final
+		\begin{enumerate}				
+			\item Verificación previo a la entrega: se verificará mediante la revisión de los documentos.			
+			\item Validación: el cliente validará los documentos.			
+		\end{enumerate}			
+		
+		\item Testing
+		\begin{enumerate}				
+			\item Verificación previo a la entrega: Se verificará el cumplimiento con los tests por funcionalidad previo la integración de cada componente en el prototipo final. 
+			\item Validación: el cliente validará el reporte de los tests de integración.
+		\end{enumerate}			
+		
+		
+\end{enumerate}
+
 
 \end{consigna}
 
@@ -390,6 +639,30 @@ Descripción &
 
 \end{consigna}
 
+
+\begin{itemize}
+	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:
+	 - Responsable: \authorname:
+	\begin{itemize}			
+		\item Se evaluarán los requerimientos y los objetivos alcanzados frente a los planteados en el plan.
+		\item Se pondrá especial interés en verificar si se cumplieron los objetivos de tiempo y funcionalidad propuestos.
+	\end{itemize}	    	 
+	
+	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
+	 - Responsable: \authorname:
+	\begin{itemize}			
+		\item Se evaluará cuál fue la configuración que mejores resultados arrojó para los objetivos planteados en el plan.
+		\item Se identificarán nuevas herramientas o procedimientos, en caso que corresponda.
+	\end{itemize}	    	 
+	
+	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores - Responsable: \authorname :
+	\begin{itemize}			
+		\item Luego de la presentación del proyecto mediante la defensa pública, se procederá a agradecer a todas las personas que participaron del desarrollo del proyecto, al director y a las autoridades de la CEIoT.
+	\end{itemize}	 
+	
+	    	 
+	 
+\end{itemize}
 
 
 
