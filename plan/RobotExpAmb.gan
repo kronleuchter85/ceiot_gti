@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Robot_Exp_Amb" company="" webLink="http://" view-date="2024-06-30" view-index="0" gantt-divider-location="486" resource-divider-location="300" version="3.3.3309" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Robot_Exp_Amb" company="" webLink="http://" view-date="2024-06-30" view-index="0" gantt-divider-location="612" resource-divider-location="300" version="3.3.3309" locale="en_US">
     <description/>
     <view zooming-state="default:6" id="gantt-chart">
-        <field id="tpd3" name="Name" width="357" order="0"/>
-        <field id="tpd4" name="Begin date" width="24" order="1"/>
-        <field id="tpd5" name="End date" width="104" order="2"/>
+        <field id="tpd3" name="Name" width="449" order="0"/>
+        <field id="tpd4" name="Begin date" width="31" order="1"/>
+        <field id="tpd5" name="End date" width="131" order="2"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -45,102 +45,102 @@
             <depend id="46" type="2" difference="0" hardness="Strong"/>
             <depend id="53" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="55" uid="098eeef30b984027a8ddd8511a0b2fc3" name="Desarrollo cloud" meeting="false" start="2024-07-03" duration="70" complete="0" expand="false">
-            <task id="53" uid="8507b9582b9e4f5580d910765b30a7ae" name="Analisis y seleccion de arquitectura cloud" meeting="false" start="2024-07-03" duration="10" complete="0" expand="true">
+        <task id="55" uid="098eeef30b984027a8ddd8511a0b2fc3" name="Desarrollo cloud" meeting="false" start="2024-07-03" duration="34" complete="0" expand="false">
+            <task id="53" uid="8507b9582b9e4f5580d910765b30a7ae" name="Analisis y seleccion de arquitectura cloud" meeting="false" start="2024-07-03" duration="6" complete="0" expand="true">
                 <depend id="54" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="54" uid="9ba3d6b2ea7945789c2ef246cf377e60" name="Setup de arquitectura cloud" meeting="false" start="2024-07-13" duration="10" complete="0" expand="true">
+            <task id="54" uid="9ba3d6b2ea7945789c2ef246cf377e60" name="Setup de arquitectura cloud" meeting="false" start="2024-07-09" duration="6" complete="0" expand="true">
                 <depend id="10" type="2" difference="0" hardness="Strong"/>
                 <depend id="11" type="2" difference="0" hardness="Strong"/>
                 <depend id="12" type="2" difference="0" hardness="Strong"/>
                 <depend id="13" type="2" difference="0" hardness="Strong"/>
                 <depend id="16" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="10" uid="477cb7801f594656b7cd3ca4288ebf6b" name="POC de backend cloud" color="#8cb6ce" meeting="false" start="2024-07-23" duration="10" complete="0" thirdDate="2023-03-21" thirdDate-constraint="0" expand="false">
+            <task id="10" uid="477cb7801f594656b7cd3ca4288ebf6b" name="POC de backend cloud" color="#8cb6ce" meeting="false" start="2024-07-15" duration="5" complete="0" thirdDate="2023-03-21" thirdDate-constraint="0" expand="false">
                 <depend id="20" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="11" uid="57075672c564455c99201d4f6eea8f00" name="POC front-end negocio" color="#8cb6ce" meeting="false" start="2024-07-23" duration="10" complete="0" thirdDate="2023-03-21" thirdDate-constraint="0" expand="true">
+            <task id="11" uid="57075672c564455c99201d4f6eea8f00" name="POC front-end negocio" color="#8cb6ce" meeting="false" start="2024-07-15" duration="5" complete="0" thirdDate="2023-03-21" thirdDate-constraint="0" expand="true">
                 <depend id="20" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="12" uid="9c48c447938b4b958e793f2ee5c56e38" name="POC front-end admin" color="#8cb6ce" meeting="false" start="2024-07-23" duration="10" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
+            <task id="12" uid="9c48c447938b4b958e793f2ee5c56e38" name="POC front-end admin" color="#8cb6ce" meeting="false" start="2024-07-15" duration="5" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
                 <depend id="20" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="20" uid="709806d4e79a45019c2c9db75ea75e72" name="Desarrollo de funcionalidad cloud" color="#8cb6ce" meeting="false" start="2024-08-02" duration="30" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true">
+            <task id="20" uid="709806d4e79a45019c2c9db75ea75e72" name="Desarrollo de funcionalidad cloud" color="#8cb6ce" meeting="false" start="2024-07-20" duration="13" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true">
                 <depend id="58" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="58" uid="06b3e1e047de426b9006c596baba70f4" name="Testing front-back cloud" meeting="false" start="2024-09-01" duration="10" complete="0" expand="true"/>
-            <task id="13" uid="df2b52bcabda442193519ae69082f4f3" name="POC data pipeline analitico" color="#8cb6ce" meeting="false" start="2024-07-23" duration="10" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
+            <task id="58" uid="06b3e1e047de426b9006c596baba70f4" name="Testing front-back cloud" meeting="false" start="2024-08-02" duration="2" complete="0" expand="true"/>
+            <task id="13" uid="df2b52bcabda442193519ae69082f4f3" name="POC data pipeline analitico" color="#8cb6ce" meeting="false" start="2024-07-15" duration="5" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
                 <depend id="26" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="26" uid="838b0079d6e5496c8eb593753c113206" name="Desarrollo de data pipeline analitico" color="#8cb6ce" meeting="false" start="2024-08-02" duration="10" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true">
+            <task id="26" uid="838b0079d6e5496c8eb593753c113206" name="Desarrollo de data pipeline analitico" color="#8cb6ce" meeting="false" start="2024-07-20" duration="15" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true">
                 <depend id="59" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="59" uid="981fcab395b6437dbbc84a6e566b791b" name="Testing analitics cloud" meeting="false" start="2024-08-12" duration="10" complete="0" expand="true"/>
-            <task id="16" uid="fd7491511a614958adca585494ff53a1" name="POC integración MQTT robot-cloud" color="#8cb6ce" meeting="false" start="2024-07-23" duration="10" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
+            <task id="59" uid="981fcab395b6437dbbc84a6e566b791b" name="Testing analitics cloud" meeting="false" start="2024-08-04" duration="2" complete="0" expand="true"/>
+            <task id="16" uid="fd7491511a614958adca585494ff53a1" name="POC integración MQTT robot-cloud" color="#8cb6ce" meeting="false" start="2024-07-15" duration="2" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
                 <depend id="22" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="22" uid="c3d2d3644782423cbcc9a93e294f789b" name="Integracion MQTT robot-cloud" color="#8cb6ce" meeting="false" start="2024-08-02" duration="9" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true"/>
+            <task id="22" uid="c3d2d3644782423cbcc9a93e294f789b" name="Integracion MQTT robot-cloud" color="#8cb6ce" meeting="false" start="2024-07-17" duration="5" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="43" uid="06e59e9cdb5f43299cc7fa44bf954228" name="Desarrollo blockchain" meeting="false" start="2024-07-03" duration="60" complete="0" expand="false">
-            <task id="44" uid="08bece2da62c47278d4406d628f490ba" name="Analisis y seleccion de arquitectura blockchain" color="#8cb6ce" meeting="false" start="2024-07-03" duration="10" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
+        <task id="43" uid="06e59e9cdb5f43299cc7fa44bf954228" name="Desarrollo blockchain" meeting="false" start="2024-07-03" duration="63" complete="0" expand="false">
+            <task id="44" uid="08bece2da62c47278d4406d628f490ba" name="Analisis y seleccion de arquitectura blockchain" color="#8cb6ce" meeting="false" start="2024-07-03" duration="11" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
                 <depend id="45" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="45" uid="6a1bac6ddf254f98aa822077909553b9" name="Setup de arquitectura blockchain" color="#8cb6ce" meeting="false" start="2024-07-13" duration="10" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
+            <task id="45" uid="6a1bac6ddf254f98aa822077909553b9" name="Setup de arquitectura blockchain" color="#8cb6ce" meeting="false" start="2024-07-14" duration="12" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
                 <depend id="14" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="14" uid="124827a9b0eb4431834bc5e185dae807" name="POC smart contract" color="#8cb6ce" meeting="false" start="2024-07-23" duration="10" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
+            <task id="14" uid="124827a9b0eb4431834bc5e185dae807" name="POC smart contract" color="#8cb6ce" meeting="false" start="2024-07-26" duration="10" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
                 <depend id="15" type="2" difference="0" hardness="Strong"/>
                 <depend id="61" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="61" uid="272c29a1cdfe48d1a57f0ea1e82017cb" name="Desarrollo smart contracts" meeting="false" start="2024-08-02" duration="15" complete="0" expand="true">
+            <task id="61" uid="272c29a1cdfe48d1a57f0ea1e82017cb" name="Desarrollo smart contracts" meeting="false" start="2024-08-05" duration="17" complete="0" expand="true">
                 <depend id="60" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="15" uid="d52d95aeda3344508e0ab01a1d8307cb" name="POC dApp" color="#8cb6ce" meeting="false" start="2024-08-02" duration="10" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
+            <task id="15" uid="d52d95aeda3344508e0ab01a1d8307cb" name="POC dApp" color="#8cb6ce" meeting="false" start="2024-08-05" duration="10" complete="0" thirdDate="2023-03-20" thirdDate-constraint="0" expand="true">
                 <depend id="62" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="62" uid="ac67020b2de0492b8157985498318b96" name="Desarrollo dApp" meeting="false" start="2024-08-12" duration="10" complete="0" expand="true">
+            <task id="62" uid="ac67020b2de0492b8157985498318b96" name="Desarrollo dApp" meeting="false" start="2024-08-15" duration="15" complete="0" expand="true">
                 <depend id="60" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="60" uid="7d7fbe0d18f247d1be42a643f073f53a" name="Testing blockchain" meeting="false" start="2024-08-22" duration="10" complete="0" expand="true"/>
+            <task id="60" uid="7d7fbe0d18f247d1be42a643f073f53a" name="Testing blockchain" meeting="false" start="2024-08-30" duration="5" complete="0" expand="true"/>
         </task>
-        <task id="9" uid="4c7a876dd26c4fbb985589210b3d9dae" name="Documentación" color="#8cb6ce" meeting="false" start="2024-07-03" duration="42" complete="0" thirdDate="2023-03-21" thirdDate-constraint="0" expand="false">
-            <task id="33" uid="5f79fcdc5e474fe0a40f4dc33daf4a77" name="manual de usuario" color="#8cb6ce" meeting="false" start="2024-07-03" duration="10" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
+        <task id="9" uid="4c7a876dd26c4fbb985589210b3d9dae" name="Documentación" color="#8cb6ce" meeting="false" start="2024-07-03" duration="33" complete="0" thirdDate="2023-03-21" thirdDate-constraint="0" expand="false">
+            <task id="33" uid="5f79fcdc5e474fe0a40f4dc33daf4a77" name="manual de usuario" color="#8cb6ce" meeting="false" start="2024-07-03" duration="8" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
                 <depend id="34" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="34" uid="e5459121d0e749d9a24bfed8edc0f43c" name="documentación de arquitectura técnica del sistema" color="#8cb6ce" meeting="false" start="2024-07-13" duration="10" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
+            <task id="34" uid="e5459121d0e749d9a24bfed8edc0f43c" name="documentación de arquitectura técnica del sistema" color="#8cb6ce" meeting="false" start="2024-07-11" duration="8" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
                 <depend id="37" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="37" uid="bfe4a57b85114f059bf3524d93e61d27" name="video demostrativo de uso" color="#8cb6ce" meeting="false" start="2024-07-23" duration="6" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
+            <task id="37" uid="bfe4a57b85114f059bf3524d93e61d27" name="video demostrativo de uso" color="#8cb6ce" meeting="false" start="2024-07-19" duration="4" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true">
                 <depend id="39" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="39" uid="ed2ee9f00bed481d9351aee31a036784" name="memoria final" color="#8cb6ce" meeting="false" start="2024-07-29" duration="16" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true"/>
+            <task id="39" uid="ed2ee9f00bed481d9351aee31a036784" name="memoria final" color="#8cb6ce" meeting="false" start="2024-07-23" duration="13" complete="0" thirdDate="2023-02-20" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="3" uid="850cf2e0d8be4003b37a42edaf3348d9" name="Set-up ambiente de integración continua" color="#8cb6ce" meeting="false" start="2024-07-03" duration="12" complete="0" thirdDate="2023-03-21" thirdDate-constraint="0" expand="false">
-            <task id="17" uid="792650e4d4a24d699e3547810f44771d" name="Set-up imagen Docker con codigo de proyecto" color="#8cb6ce" meeting="false" start="2024-07-03" duration="5" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true">
+        <task id="3" uid="850cf2e0d8be4003b37a42edaf3348d9" name="Set-up ambiente de integración continua" color="#8cb6ce" meeting="false" start="2024-07-03" duration="5" complete="0" thirdDate="2023-03-21" thirdDate-constraint="0" expand="false">
+            <task id="17" uid="792650e4d4a24d699e3547810f44771d" name="Set-up imagen Docker con codigo de proyecto" color="#8cb6ce" meeting="false" start="2024-07-03" duration="3" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true">
                 <depend id="18" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="18" uid="011544ec3f004108b8ae4ca13cc473c3" name="Set-up servicio de integración continua cloud" color="#8cb6ce" meeting="false" start="2024-07-08" duration="2" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true">
+            <task id="18" uid="011544ec3f004108b8ae4ca13cc473c3" name="Set-up servicio de integración continua cloud" color="#8cb6ce" meeting="false" start="2024-07-06" duration="1" complete="0" thirdDate="2023-03-06" thirdDate-constraint="0" expand="true">
                 <depend id="19" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="19" uid="91daf3304d584dc6b7effe507330dfc7" name="Configuracion con Github para tomar los commits y ejecutar los builds" color="#8cb6ce" meeting="false" start="2024-07-10" duration="5" complete="0" thirdDate="2023-03-16" thirdDate-constraint="0" expand="true"/>
+            <task id="19" uid="91daf3304d584dc6b7effe507330dfc7" name="Configuracion con Github" color="#8cb6ce" meeting="false" start="2024-07-07" duration="1" complete="0" thirdDate="2023-03-16" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="42" uid="2d3c055c8e394f85a5a3ad0b67cb0a32" name="Gestion del proyecto" meeting="false" start="2024-07-03" duration="40" complete="0" expand="false">
-            <task id="46" uid="c8f1b323c0534888a461af38a2864dbe" name="Definicion de alcance, funcionalidades e historias de usuario" color="#8cb6ce" meeting="false" start="2024-07-03" duration="6" complete="0" thirdDate="2023-04-04" thirdDate-constraint="0" expand="true">
+        <task id="42" uid="2d3c055c8e394f85a5a3ad0b67cb0a32" name="Gestion del proyecto" meeting="false" start="2024-07-03" duration="62" complete="0" expand="true">
+            <task id="46" uid="c8f1b323c0534888a461af38a2864dbe" name="Definicion de alcance, funcionalidades e historias de usuario" color="#8cb6ce" meeting="false" start="2024-07-03" duration="1" complete="0" thirdDate="2023-04-04" thirdDate-constraint="0" expand="true">
                 <depend id="47" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="47" uid="cb9c36e2692d408483cbb72abdb548cc" name="Armado del plan de actividades y tareas" color="#8cb6ce" meeting="false" start="2024-07-09" duration="5" complete="0" thirdDate="2023-04-05" thirdDate-constraint="0" expand="true">
+            <task id="47" uid="cb9c36e2692d408483cbb72abdb548cc" name="Armado del plan de actividades y tareas" color="#8cb6ce" meeting="false" start="2024-07-04" duration="1" complete="0" thirdDate="2023-04-05" thirdDate-constraint="0" expand="true">
                 <depend id="48" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="48" uid="ce5dc999f43d4b05b44c4cc407b5884a" name="Reconocimiento de riesgos" color="#8cb6ce" meeting="false" start="2024-07-14" duration="6" complete="0" thirdDate="2023-04-15" thirdDate-constraint="0" expand="true">
+            <task id="48" uid="ce5dc999f43d4b05b44c4cc407b5884a" name="Reconocimiento de riesgos" color="#8cb6ce" meeting="false" start="2024-07-05" duration="1" complete="0" thirdDate="2023-04-15" thirdDate-constraint="0" expand="true">
                 <depend id="49" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="49" uid="1ba3529787174385a2cbea6fd78eeb79" name="Definicion de proceso de calidad" color="#8cb6ce" meeting="false" start="2024-07-20" duration="6" complete="0" thirdDate="2023-04-21" thirdDate-constraint="0" expand="true">
+            <task id="49" uid="1ba3529787174385a2cbea6fd78eeb79" name="Definicion de proceso de calidad" color="#8cb6ce" meeting="false" start="2024-07-06" duration="1" complete="0" thirdDate="2023-04-21" thirdDate-constraint="0" expand="true">
                 <depend id="50" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="50" uid="8d8a975551bc4bd7868fb4f0f7433bfd" name="Confeccion de documentacion de planificacion del proyecto" color="#8cb6ce" meeting="false" start="2024-07-26" duration="7" complete="0" thirdDate="2023-04-08" thirdDate-constraint="0" expand="true">
+            <task id="50" uid="8d8a975551bc4bd7868fb4f0f7433bfd" name="Confeccion de documentacion de planificacion del proyecto" color="#8cb6ce" meeting="false" start="2024-07-07" duration="3" complete="0" thirdDate="2023-04-08" thirdDate-constraint="0" expand="true">
                 <depend id="51" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="51" uid="3ccfd1bfb6384b0da01ab013c2502007" name="Seguimiento y control de hitos, desvios y riesgos" color="#8cb6ce" meeting="false" start="2024-08-02" duration="10" complete="0" thirdDate="2023-04-11" thirdDate-constraint="0" expand="true"/>
+            <task id="51" uid="3ccfd1bfb6384b0da01ab013c2502007" name="Seguimiento y control de hitos, desvios y riesgos" color="#8cb6ce" meeting="false" start="2024-07-10" duration="55" complete="0" thirdDate="2023-04-11" thirdDate-constraint="0" expand="true"/>
         </task>
     </tasks>
     <resources>
